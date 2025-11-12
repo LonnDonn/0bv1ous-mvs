@@ -1,29 +1,93 @@
 <!doctype html>
-<html lang="hu">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OBVAIOUS — Prelude</title>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBVAIOUS — The Final Line</title>
+  <meta name="description" content="OBVAIOUS is a living verification architecture. A pre-release glimpse.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#000000">
   <style>
     :root {
-      --bg:#0a0a0d; --fg:#efeff8; --muted:#a6a6bb; --line:#1d1d27;
+      --bg: #000;
+      --fg: #fff;
+      --muted: rgba(255,255,255,.7);
+      --soft: rgba(255,255,255,.12);
+      --ring: rgba(255,255,255,.35);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;color:var(--fg);background:radial-gradient(1200px 600px at 50% -20%,#141423,var(--bg));display:grid;place-items:center}
-    main{padding:2.5rem 2rem;border:1px solid var(--line);border-radius:2rem;backdrop-filter:blur(8px) saturate(140%);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:0 24px 80px rgba(0,0,0,.45);text-align:center;width:min(800px,90%)}
-    h1{text-transform:uppercase;letter-spacing:.12em;margin-bottom:.25em;font-weight:700}
-    p{max-width:52ch;margin:.75em auto 0;color:var(--muted);line-height:1.6}
-    footer{margin-top:2rem;font-size:.9rem;color:#7e7e96;opacity:.8}
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    .wrap { min-height: 100dvh; display:flex; flex-direction:column; }
+    header { padding: 24px 20px; }
+    .container { width: min(1100px, 100%); margin: 0 auto; padding: 0 12px; }
+    .brand { display:flex; align-items:center; gap: 12px; text-decoration:none; color: inherit; }
+    .brand svg { width: 38px; height: 38px; }
+    .brand span { font-weight: 900; letter-spacing: -0.02em; font-size: 20px; }
+    .hero { padding: clamp(36px, 7vw, 96px) 20px 24px; text-align:center; }
+    .hero h1 { font-size: clamp(40px, 6.4vw, 84px); line-height: .96; margin: 0 0 12px; font-weight: 950; }
+    .tag { font-size: clamp(14px, 2.2vw, 18px); color: var(--muted); margin-bottom: 28px; }
+    .line { height: 1px; width: 100%; background: linear-gradient(90deg, transparent, var(--soft), transparent); margin: 28px 0; }
+    .cta { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .btn { border:none; cursor:pointer; font-weight:700; border-radius:999px; padding:12px 18px; font-size:16px; }
+    .btn.primary { background:#fff; color:#000; }
+    .btn.ghost { background:transparent; color:#fff; outline:1px solid var(--soft); }
+    .pitch { padding:42px 20px 10px; text-align:center; color:var(--muted); font-size:clamp(16px,2.2vw,20px); }
+    .pitch strong { color:#fff; }
+    footer { margin-top:auto; padding:40px 20px; color:var(--muted); }
+    .legal { font-size:12px; opacity:.75; }
+    .shimmer { position:relative; overflow:hidden; }
+    .shimmer::after { content:""; position:absolute; inset:0; background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.06) 40%,transparent 60%); transform:translateX(-100%); animation:shine 3.2s ease-in-out infinite; }
+    @keyframes shine { 0%{transform:translateX(-100%);}60%{transform:translateX(100%);}100%{transform:translateX(100%);} }
+    @media (prefers-reduced-motion:reduce){.shimmer::after{animation:none;}}
   </style>
-</head>
-<body>
-  <main>
-    <h1>OBVAIOUS</h1>
-    <p>Jelenleg a felület csendben formálódik.  
-       A rendszer alapjai már élnek, de a nyilvános réteg  
-       csak akkor nyílik meg, amikor minden elem a helyére illeszkedett.</p>
-    <p>Ez az oldal egyelőre csak a tér figyelmét őrzi.</p>
-    <footer>© OBVAIOUS — forthcoming release</footer>
-  </main>
-</body>
+ </head>
+ <body>
+  <div class="wrap">
+   <header>
+    <div class="container">
+     <a class="brand shimmer" href="#"> 
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+       <rect x="10" y="29" width="44" height="6" rx="3" fill="currentColor" /> <rect x="34" y="16" width="6" height="32" rx="3" transform="rotate(18 37 32)" fill="currentColor" /> <circle cx="46" cy="40" r="4" fill="currentColor" />
+      </svg> 
+      <span>OBVAIOUS</span> 
+     </a>
+    </div>
+   </header>
+   <main class="container">
+    <section class="hero">
+     <h1>The Final Line.</h1>
+     <p class="tag">The system where manipulation ends, and only truth remains.</p>
+     <div class="line"></div>
+     <div class="cta">
+      <form onsubmit="event.preventDefault(); openThanks();">
+       <input type="email" name="email" placeholder="you@example.com" required style="background:#0d0d0d;color:#fff;border:1px solid var(--soft);border-radius:999px;padding:12px 14px;min-width:260px;">
+       <button class="btn primary" type="submit">Join the Waitlist</button>
+      </form>
+      <button class="btn ghost" onclick="document.getElementById('principle').showModal()">Learn the Principle</button>
+     </div>
+     <p class="pitch">A <strong>living verification architecture</strong>. Soon, you’ll see it working. Until then, look <em>through</em> it.</p>
+    </section>
+   </main>
+   <footer>
+    <div class="container">
+     <div class="legal">
+      © <span id="yr"></span> OBVAIOUS. All rights reserved.
+     </div>
+    </div>
+   </footer>
+  </div>
+  <dialog id="principle">
+   <p>Trust isn’t declared. It’s demonstrated. OBVAIOUS is built to <em>show</em> truth, not argue it.</p>
+   <button onclick="this.closest('dialog').close()">Close</button>
+  </dialog>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    function openThanks(){
+      const d=document.createElement('dialog');
+      d.innerHTML=`<p>Thank you. When the door opens, you’ll be first to see through the glass.</p><button onclick="this.closest('dialog').close()">Close</button>`;
+      document.body.appendChild(d);d.showModal();d.addEventListener('close',()=>d.remove());
+    }
+  </script>
+ </body>
 </html>
